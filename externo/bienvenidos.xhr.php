@@ -1,0 +1,1 @@
+<img src="imagenes/fondos/servicio-soporte-virtual.jpg" width="100%"/>

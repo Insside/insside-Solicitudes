@@ -1,0 +1,57 @@
+/*
+Copyright (c) 2014, Alexis
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+* Redistributions of source code must retain the above copyright notice, this
+  list of conditions and the following disclaimer.
+* Redistributions in binary form must reproduce the above copyright notice,
+  this list of conditions and the following disclaimer in the documentation
+  and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.
+*/
+/* 
+    Created on : 25/03/2014, 08:19:14 AM
+    Author     : Alexis
+*/
+.tdatos table, table td, table tr {padding:0px;	margin:0px;border-spacing: 0px;}
+.tdatos table {border:1px solid #cccccc;border-radius:5px;min-width:400px;font-family: Helvetica,Arial; font-size: 12px;}
+.tdatos table th {text-align: center;}
+.tdatos table td {padding-left:10px;padding-right:10px;border:1px solid #cccccc;}
+.tdatos table tr:first-child td:first-child {border-radius:5px 0px 0px 0px;}
+.tdatos table tr:first-child td:last-child {border-radius:0px 5px 0px 0px;}
+.tdatos table tr:last-child td:first-child {border-radius:0px 0px 0px 5px;}
+.tdatos table tr:last-child td:last-child {border-radius:0px 0px 5px 0px;}
+.tdatos table.header tr:first-child {font-weight: bold;color:#fff;background-color: #444;border-bottom:1px #000 solid;}
+.tdatos table.header tr:nth-child(n+2) {text-align: right;}
+.tdatos table tr:nth-child(2n) {background: #ffffff;}
+.tdatos table tr:nth-child(2n+1){background: #f2f2f2;}
+.tdatos table.header tr:not(:first-child):hover, table:not(.header) tr:hover {background:#cccccc;}
+.tdatos table:not(.header) tr {text-align: left;}
+
+.tvertical {
+  -webkit-transform: rotate(-90deg); 
+  -moz-transform: rotate(-90deg); 
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+  display: block;
+  padding: 10px;
+  text-align: center;
+  transform: rotate(-90deg);
+}
+
+
+
+

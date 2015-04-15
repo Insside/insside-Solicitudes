@@ -1,0 +1,1 @@
+<img src="imagenes/fondos/sinsolicitudes.jpg" width="100%"/>
