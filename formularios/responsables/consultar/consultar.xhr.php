@@ -1,8 +1,7 @@
 <?php
-$root = (!isset($root)) ? "../../../../" : $root;
-require_once($root . "modulos/aplicacion/librerias/Configuracion.cnf.php");
-$validaciones=new Validaciones();
-/* 
+$root = (!isset($root)) ? "../../../../../" : $root;
+require_once($root . "modulos/solicitudes/librerias/Configuracion.cnf.php");
+/*
  * Copyright (c) 2014, Alexis
  * All rights reserved.
  *
@@ -27,18 +26,22 @@ $validaciones=new Validaciones();
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
-$transaccion = isset($_REQUEST['transaccion']) ? $_REQUEST['transaccion'] : time();
-$solicitud = $validaciones->recibir("solicitud");
+
+$validaciones=new Validaciones();
+$transaccion=$validaciones->recibir("transaccion");
+$trasmision = $validaciones->recibir("trasmision");
+$url['formulario']=$root . "modulos/solicitudes/formularios/responsables/consultar/formulario.inc.php";
+$url['procesador']=$root . "modulos/solicitudes/formularios/responsables/consultar/procesador.inc.php";
 
 $f = new Formularios($transaccion);
 echo($f->apertura());
-$etiquetas = array("Responsable", "Creador", "Equipo");
-$valores = array("responsable", "creador", "equipo");
-$ruta = "modulos/solicitudes/formularios/responsables/";
-$urls[0] = $ruta . "responsable/responsable.xhr.php?transaccion=" . $transaccion . "&solicitud=".$solicitud;
-$urls[1] = $ruta . "creador/creador.xhr.php?transaccion=" . $transaccion . "&solicitud=" . $solicitud;
-$urls[2] = $ruta . "equipo/equipo.xhr.php?transaccion=" . $transaccion . "&solicitud=" . $solicitud;
-echo($f->Tabs("solicitudes", $etiquetas, $valores, $urls));
+if (empty($trasmision)) {
+  require_once($url['formulario']);
+} else {
+  require_once($url['procesador']);
+}
 echo($f->generar());
+echo($f->controles());
 echo($f->cierre());
 ?>
+

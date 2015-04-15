@@ -1,9 +1,5 @@
 <?php
-$equipos = new Usuarios_Equiposs();
-$solicitudes=new Solicitudes();
-/** Variables Recibidas **/
-$transaccion=$validaciones->recibir("transaccion");
-$solicitud=$solicitudes->consultar($validaciones->recibir("solicitud"));
+$equipos = new Usuarios_Equipos();
 $equipo=$equipos->consultar($solicitud['equipo']);
 /*
  * Copyright (c) 2014, Alexis
@@ -54,12 +50,5 @@ $f->fila["fila1"] = $f->fila($f->celdas["equipo"].$f->celdas["nombre"]);
 $f->fila["fila2"] = $f->fila($f->celdas["descripcion"]);
 $f->fila["fila3"] = $f->fila($f->celdas["creador"].$f->celdas["fecha"].$f->celdas["hora"]);
 /** Compilando **/
-$f->filas($f->fila['fila1']);
-$f->filas($f->fila['fila2']);
-$f->filas($f->fila['fila3']);
-//$f->botones($f->campos["cerrar"]);
-//$f->botones($f->campos["actualizar"]);
-/** JavaScripts **/
-$f->JavaScript("MUI.resizeWindow($('" . ($f->ventana) . "'), {width: 540, height: 295});");
-//$f->JavaScript("MUI.centerWindow($('" . $f->ventana . "'));");
+$f->fila["equipo"]=$f->fila["fila1"].$f->fila["fila2"].$f->fila["fila3"];
 ?>

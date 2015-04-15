@@ -1,11 +1,6 @@
 <?php
-$empleados = new Empleados();
-$usuarios = new Usuarios();
-$solicitudes=new Solicitudes();
-/** Variables Recibidas **/
-$transaccion=$validaciones->recibir("transaccion");
-$solicitud=$solicitudes->consultar($validaciones->recibir("solicitud"));
-$usuario=$usuarios->consultar($solicitud["responsable"]);
+$usuarios=new Usuarios();
+$responsable=$usuarios->consultar($solicitud["responsable"]);
 /*
  * Copyright (c) 2014, Alexis
  * All rights reserved.
@@ -33,9 +28,9 @@ $usuario=$usuarios->consultar($solicitud["responsable"]);
  */
 
 /** Clases Declaradas E Inicializadas * */
-$perfil = $empleados->perfil($usuario['empleado']);
+$perfil = $usuarios->perfil($responsable['perfil']);
 /** Campos * */
-$f->campos['empleado'] = $f->campo("empleado", $perfil['empleado']);
+$f->campos['perfil'] = $f->campo("empleado", $perfil['perfil']);
 $f->campos['nombres'] = $f->campo("nombres", $perfil['nombres']);
 $f->campos['apellidos'] = $f->campo("apellidos", $perfil['apellidos']);
 $f->campos['direccion'] = $f->campo("direccion", $perfil['direccion']);
@@ -50,7 +45,7 @@ $f->campos['ayuda'] = $f->button("ayuda" . $f->id, "button", "Ayuda");
 $f->campos['cancelar'] = $f->button("cancelar" . $f->id, "button", "Cerrar");
 $f->campos['responsabilizar'] = $f->button("responsabilizar" . $f->id, "button", "Responsabilizar");
 /** Celdas * */
-$f->celdas["empleado"] = $f->celda("Perfil:", $f->campos['empleado']);
+$f->celdas["perfil"] = $f->celda("Perfil:", $f->campos['perfil']);
 $f->celdas["nombres"] = $f->celda("Nombres:", $f->campos['nombres']);
 $f->celdas["apellidos"] = $f->celda("Apellidos:", $f->campos['apellidos']);
 $f->celdas["direccion"] = $f->celda("Dirección:", $f->campos['direccion']);
@@ -61,7 +56,7 @@ $f->celdas["creado"] = $f->celda("Creado:", $f->campos['creado']);
 $f->celdas["actualizado"] = $f->celda("Actualizado:", $f->campos['actualizado']);
 $f->celdas["creador"] = $f->celda("Creador:", $f->campos['creador']);
 
-$f->fila['sf1']=$f->fila($f->celdas["empleado"]);
+$f->fila['sf1']=$f->fila($f->celdas["perfil"]);
 $f->fila['sf2']=$f->fila($f->celdas["nombres"] . $f->celdas["apellidos"]);
 $f->fila['sf3']=$f->fila($f->celdas["direccion"]);
 $f->fila['sf4']=$f->fila($f->celdas["telefono"]);
@@ -71,28 +66,5 @@ $f->fila['sf5']=$f->fila($f->celdas["correo"]);
 $f->celdas["foto"] = $f->celda("", $f->campos['foto'],"","w200");
 $f->celdas["datos"] = $f->celda("",$f->fila['sf1'].$f->fila['sf2'].$f->fila['sf3'].$f->fila['sf4'].$f->fila['sf5']);
 /** Filas * */
-$f->fila["f1"] =$f->fila($f->celdas["foto"].$f->celdas["datos"]);
-//$f->fila["fila1"] = $f->fila($f->celdas["empleado"] . $f->celdas["nombres"] . $f->celdas["apellidos"]);
-//$f->fila["fila2"] = $f->fila($f->celdas["direccion"] . $f->celdas["telefono"] . $f->celdas["correo"]);
-//$f->fila["fila3"] = $f->fila($f->celdas["sexo"] . $f->celdas["creado"] . $f->celdas["actualizado"]);
-//$f->fila["fila4"] = $f->fila($f->celdas["creador"]);
-/** Compilando * */
-$f->filas($f->fila['f1']);
-//$f->filas($f->fila['fila2']);
-//$f->filas($f->fila['fila3']);
-//$f->filas($f->fila['fila4']);
-/** Botones **/
-$f->botones($f->campos["ayuda"],"inferior-izquierda");
-$f->botones($f->campos["cancelar"],"inferior-derecha");
-$f->botones($f->campos["responsabilizar"],"inferior-derecha");
-/** JavaScripts **/
-$f->eClick("cancelar" . $f->id, "MUI.closeWindow($('" . $f->ventana . "'));");
-$f->eClick("responsabilizar" . $f->id,""
-        . "MUI.closeWindow($('" . $f->ventana . "'));"
-        . "MUI.Solicitudes_Solicitud_Responsabilizar('".$solicitud['solicitud']."');"
-        . "");
-$f->JavaScript("MUI.resizeWindow($('" . ($f->ventana) . "'), {width: 540, height: 340});");
-$f->JavaScript("MUI.titleWindow($('" . ($f->ventana) . "'), \"Responsabilidades Solicitud ".$solicitud['solicitud']."\");");
-//$f->JavaScript("MUI.centerWindow($('" . $f->ventana . "'));");
-
+$f->fila["responsable"] =$f->fila($f->celdas["foto"].$f->celdas["datos"]);
 ?>

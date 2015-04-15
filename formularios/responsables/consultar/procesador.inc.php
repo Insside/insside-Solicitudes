@@ -1,9 +1,7 @@
 <?php
-$root = (!isset($root)) ? "../../../../../" : $root;
-require_once($root . "modulos/aplicacion/librerias/Configuracion.cnf.php");
-$validaciones=new Validaciones();
+
 /* 
- * Copyright (c) 2014, Alexis
+ * Copyright (c) 2015, Alexis
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -27,20 +25,4 @@ $validaciones=new Validaciones();
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
-$validaciones=new Validaciones();
-$transaccion=$validaciones->recibir("transaccion");
-$trasmision = $validaciones->recibir("trasmision");
-$url['formulario']=$root . "modulos/solicitudes/formularios/responsables/creador/formulario.inc.php";
-$url['procesador']=$root . "modulos/solicitudes/formularios/responsables/creador/procesador.inc.php";
 
-$f = new Formularios($transaccion);
-echo($f->apertura());
-if (empty($trasmision)) {
-  require_once($url['formulario']);
-} else {
-  require_once($url['procesador']);
-}
-echo($f->generar());
-echo($f->controles());
-echo($f->cierre());
-?>
