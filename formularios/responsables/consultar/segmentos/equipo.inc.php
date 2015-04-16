@@ -36,8 +36,6 @@ $f->campos['descripcion']=$f->campo("descripcion",$valores['descripcion']);
 $f->campos['creador']=$f->campo("creador",$valores['creador']);
 $f->campos['fecha']=$f->campo("fecha",$valores['fecha']);
 $f->campos['hora']=$f->campo("hora",$valores['hora']);
-$f->campos['cerrar']=$f->button("cerrar".$f->id,"button","Cerrar");
-$f->campos['actualizar']=$f->button("actualizar".$f->id,"button","Actualizar");
 /** Celdas **/
 $f->celdas["equipo"] = $f->celda("Equipo:", $f->campos['equipo']);
 $f->celdas["nombre"] = $f->celda("Nombre:", $f->campos['nombre']);

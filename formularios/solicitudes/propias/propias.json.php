@@ -216,7 +216,7 @@ while ($fila = $db->sql_fetchrow($consulta)) {
   $nombre = "<b>" . $cadenas->capitalizar(@$fila['s_nombres'] . " " . @$fila['s_apellidos']) . "</b>";
   $direccion = $cadenas->capitalizar((!empty($fila['s_instalacion'])) ? $fila['s_instalacion'] : $fila['s_direccion']);
   $telefonos = "<i>Tels: " . @$fila['telefono'] . " " . @$fila['movil'] . "</i>";
-  $detalles = "<span>" . $codigos . " " . $nombre . " " . $direccion . " " . $telefonos . "</span>";
+  $detalles = "<span>" . $codigos . " " . (($fila['s_creador']!=$fila['s_responsable'])?"<span style=\"color:blue;padding:0px;\">[RE]</span> ":"").$nombre . " " . $direccion . " " . $telefonos . "</span>";
   $servicio = $servicios->consultar(@$fila['s_servicio']);
   /** Analizando Estados * */
   $estado['notificacion'] = (isset($fila['notificacion']) && !empty($fila['notificacion'])) ? "verde" : "rojo";

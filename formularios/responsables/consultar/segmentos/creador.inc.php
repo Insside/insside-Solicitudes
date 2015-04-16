@@ -41,9 +41,6 @@ $f->campos['creado'] = $f->campo("creado", $perfil['creado']);
 $f->campos['actualizado'] = $f->campo("actualizado", $perfil['actualizado']);
 $f->campos['creador'] = $f->campo("creador", $perfil['creador']);
 $f->campos['foto'] ="<img src=\"".$perfil['foto']."?".time()."\" width=\"200\" height=\"267\"/>";
-$f->campos['ayuda'] = $f->button("ayuda" . $f->id, "button", "Ayuda");
-$f->campos['cancelar'] = $f->button("cancelar" . $f->id, "button", "Cerrar");
-$f->campos['responsabilizar'] = $f->button("responsabilizar" . $f->id, "button", "Responsabilizar");
 /** Celdas * */
 $f->celdas["perfil"] = $f->celda("Perfil:", $f->campos['perfil']);
 $f->celdas["nombres"] = $f->celda("Nombres:", $f->campos['nombres']);

@@ -56,15 +56,17 @@ $solicitud = $solicitudes->consultar($validaciones->recibir("solicitud"));
 
 /** Campos * */
 $f->oculto("solicitud", $solicitud['solicitud']);
-$f->campos['cancelar'] = $f->button("cancelar" . $f->id, "button", "Cancelar");
+$f->campos['ayuda'] = $f->button("ayuda" . $f->id, "button", "Ayuda");
+$f->campos['cancelar'] = $f->button("cancelar" . $f->id, "button", "Cerrar");
 $f->campos['responsabilizar'] = $f->button("responsabilizar" . $f->id, "button", "Modificar");
+
 require_once($root."modulos/solicitudes/formularios/responsables/consultar/segmentos/responsable.inc.php");
 require_once($root."modulos/solicitudes/formularios/responsables/consultar/segmentos/creador.inc.php");
 require_once($root."modulos/solicitudes/formularios/responsables/consultar/segmentos/equipo.inc.php");
 
 $f->fila["tabs"] = ""
         . "<ul id = \"tabs\">"
-        . "<li><a class=\"tab\" href=\"#\" id=\"one\">Respondable</a></li>"
+        . "<li><a class=\"tab\" href=\"#\" id=\"one\">Responsable</a></li>"
         . "<li><a class=\"tab\" href=\"#\" id=\"two\">Creador</a></li>"
         . "<li><a class=\"tab\" href=\"#\" id=\"two\">Equipo</a></li>"
         . "</ul>";
