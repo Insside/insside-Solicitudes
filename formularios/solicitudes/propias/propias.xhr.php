@@ -29,8 +29,8 @@ $validaciones=new Validaciones();
  */
 
 if(Sesion::Iniciada()){
-  require_once("modulos/solicitudes/formularios/solicitudes/propias/tabla.inc.php");
+  require_once($root."modulos/solicitudes/formularios/solicitudes/propias/tabla.inc.php");
 }else{
-  require_once("modulos/aplicacion/formularios/sesion/reconexion/reconexion.xhr.php");
+  require_once($root."modulos/aplicacion/formularios/sesion/reconexion/reconexion.xhr.php");
 }
 ?>
