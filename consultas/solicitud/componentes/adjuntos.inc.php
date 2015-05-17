@@ -1,4 +1,5 @@
 <?php
+$usuario=Sesion::usuario();
 $archivos=new Solicitudes_Archivos();
 /* 
  * Copyright (c) 2014, Alexis
@@ -33,7 +34,7 @@ $html['info']="<a name=\"adjuntos\"></a><h2>5. Archivos adjuntos. </h2>
   ingrese a  [ <a href=\"#\" 
   onClick=\"MUI.Solicitudes_Archivo_Adjuntar('".$s['solicitud']."');\">Adjuntar Nuevo Archivo!</a> ].</p>";
 $f->celdas['info'] = $f->celda("", $html['info']);
-$f->celdas['adjuntos'] = $f->celda("",$archivos->tabla($s['solicitud']),"archivos".$f->id,"tdatos");
+$f->celdas['adjuntos'] = $f->celda("",$archivos->tabla($s['solicitud'],$usuario['usuario']),"archivos".$f->id,"tdatos");
 
 $f->fila["adjuntos1"]=$f->fila($f->celdas['info']);
 $f->fila["adjuntos2"]=$f->fila($f->celdas['adjuntos']);

@@ -3,8 +3,8 @@
 $root = (!isset($root)) ? "../../../../../" : $root;
 require_once($root . "modulos/solicitudes/librerias/Configuracion.cnf.php");
 header('Content-Type: application/json');
+Sesion::init();
 
-$sesion = new Sesion();
 $automatizaciones = new Automatizaciones();
 $usuarios = new Usuarios();
 $validaciones = new Validaciones();
@@ -39,7 +39,7 @@ $notificaciones = new Notificaciones();
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
-$usuario = $sesion->usuario();
+$usuario = Sesion::usuario();
 /** Variables Recibidas * */
 $v['criterio'] = $validaciones->recibir("criterio");
 $v['valor'] = $validaciones->recibir("valor");
@@ -152,7 +152,7 @@ if (!empty($v['criterio']) && !empty($v['valor']) && $v['criterio'] == "estado" 
       FROM `solicitudes_respuestas` 
       WHERE(`solicitudes_solicitudes`.`solicitud`=`solicitudes_respuestas`.`solicitud`)
     )AND((`solicitudes_solicitudes`.`creador`='" . $usuario['usuario'] . "')OR(`solicitudes_solicitudes`.`responsable`='" . $usuario['usuario'] . "'));";
-} else { 
+} else {
   $sql['consulta'] = ("SELECT 
   `solicitudes_solicitudes`.`solicitud`,
   `solicitudes_respuestas`.`respuesta`,
@@ -216,7 +216,7 @@ while ($fila = $db->sql_fetchrow($consulta)) {
   $nombre = "<b>" . $cadenas->capitalizar(@$fila['s_nombres'] . " " . @$fila['s_apellidos']) . "</b>";
   $direccion = $cadenas->capitalizar((!empty($fila['s_instalacion'])) ? $fila['s_instalacion'] : $fila['s_direccion']);
   $telefonos = "<i>Tels: " . @$fila['telefono'] . " " . @$fila['movil'] . "</i>";
-  $detalles = "<span>" . $codigos . " " . (($fila['s_creador']!=$fila['s_responsable'])?"<span style=\"color:blue;padding:0px;\">[RE]</span> ":"").$nombre . " " . $direccion . " " . $telefonos . "</span>";
+  $detalles = "<span>" . $codigos . " " . (($fila['s_creador'] != $fila['s_responsable']) ? "<span style=\"color:blue;padding:0px;\">[RE]</span> " : "") . $nombre . " " . $direccion . " " . $telefonos . "</span>";
   $servicio = $servicios->consultar(@$fila['s_servicio']);
   /** Analizando Estados * */
   $estado['notificacion'] = (isset($fila['notificacion']) && !empty($fila['notificacion'])) ? "verde" : "rojo";

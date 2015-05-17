@@ -5,7 +5,7 @@ $sesion = new Sesion();
 $validaciones = new Validaciones();
 $respuestas=new Respuestas();
 $usuarios=new Usuarios();
-$usuario=$sesion->usuario();
+$usuario=Sesion::usuario();
 $respuesta =$respuestas->consultar($validaciones->recibir("respuesta"));
 /*
  * Copyright (c) 2014, Alexis

@@ -28,7 +28,7 @@ $formato=$validaciones->recibir("formato");
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
-$usuario=$sesion->usuario();
+$usuario=Sesion::usuario();
 $formatos->actualizar($formato,"nombre",$validaciones->recibir("nombre"));
 //$formatos->actualizar($formato,"descripcion",$validaciones->recibir("descripcion"));
 $formatos->actualizar($formato,"modelo",  urlencode($validaciones->recibir("modelo")));

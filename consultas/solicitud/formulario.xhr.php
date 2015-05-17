@@ -1,7 +1,6 @@
 <?php
 $root = (!isset($root)) ? "../../../../" : $root;
 require_once($root . "modulos/solicitudes/librerias/Configuracion.cnf.php");
-$sesion=new Sesion();
 $validaciones=new Validaciones();
 $transaccion=$validaciones->recibir("transaccion");
 $trasmision = $validaciones->recibir("trasmision");

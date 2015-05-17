@@ -12,7 +12,7 @@ class Solicitudes {
   var $formularios;
 
   function Solicitudes() {
-    $this->permisos = new Permisos();
+    $this->permisos = new Usuarios_Permisos();
     $this->sesion = new Sesion();
     $this->fechas = new Fechas();
     $this->usuarios = new Usuarios();

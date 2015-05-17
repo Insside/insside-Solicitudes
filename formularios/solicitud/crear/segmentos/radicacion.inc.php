@@ -28,7 +28,7 @@
 $solicitudes = new Solicitudes();
 $usuarios = new Usuarios();
 $suscriptores = new Suscriptores();
-$usuario =$sesion->usuario();
+$usuario =Sesion::usuario();
 
 $valor['solicitud'] = @$_REQUEST["_solicitud"];
 $valor['dane'] = "0076111000";

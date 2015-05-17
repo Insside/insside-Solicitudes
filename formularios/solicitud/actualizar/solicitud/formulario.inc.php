@@ -48,12 +48,12 @@ $f->campos['radicacion'] = $f->calendario("radicacion".$f->id, $valores['radicac
 $f->campos['categoria'] = $categorias->combo("categoria" . $f->id, $valores['categoria'], false, "changeCategoria" . $f->id . "();");
 $f->campos['causal'] = $causales->combo("causal" . $f->id, $valores['causal'], $valores['servicio'], $valores['categoria'], "required", "changeCausal" . $f->id . "();");
 $f->campos['asunto'] = $asuntos->combo("asunto" . $f->id, $valores['asunto'], $valores['servicio'], $valores['categoria'], $valores['causal']);
-$f->campos['detalle'] = $f->textarea("detalle", $valores['detalle'], "h150 p10", "1000", "", false);
+$f->campos['detalle'] = $f->textarea("detalle", urldecode($valores['detalle']), "h150 p10", "1000", "", false);
 $f->campos['suscriptor'] = $f->text("suscriptor", $valores['suscriptor'], "10", "", false, false);
 $f->campos['factura'] = $f->text("factura", $valores['factura'], "10", "", false);
-$f->campos['respuesta'] = $f->text("respuesta", $valores['respuesta'], "1", "", false);
-$f->campos['contestacion'] = $f->text("contestacion", $valores['contestacion'], "10", "", false);
-$f->campos['radicada'] = $f->text("radicada", $valores['radicada'], "14", "", false);
+$f->campos['respuesta'] = $f->text("respuesta", @$valores['respuesta'], "1", "", false);
+$f->campos['contestacion'] = $f->text("contestacion", @$valores['contestacion'], "10", "", false);
+$f->campos['radicada'] = $f->text("radicada", @$valores['radicada'], "14", "", false);
 $f->campos['notificado'] = $f->text("notificado", $valores['notificado'], "10", "", false);
 $f->campos['notificacion'] = $f->text("notificacion", $valores['notificacion'], "1", "", false);
 $f->campos['sspd'] = $f->text("sspd", $valores['sspd'], "10", "", false);
@@ -82,9 +82,9 @@ $f->campos['estrato'] = $f->text("estrato", $valores['estrato'], "2", "", false)
 $f->campos['diametro'] = $f->text("diametro", $valores['diametro'], "3,2", "", false);
 $f->campos['legalizado'] = $f->text("legalizado", $valores['legalizado'], "2", "", false);
 $f->campos['matricula'] = $f->text("matricula", $valores['matricula'], "10", "", false);
-$f->campos['tipoderespuesta'] = $f->text("tipoderespuesta", $valores['tipoderespuesta'], "2", "", false);
-$f->campos['ordenservicio'] = $f->text("ordenservicio", $valores['ordenservicio'], "10", "", false);
-$f->campos['ordencobro'] = $f->text("ordencobro", $valores['ordencobro'], "10", "", false);
+$f->campos['tipoderespuesta'] = $f->text("tipoderespuesta", @$valores['tipoderespuesta'], "2", "", false);
+$f->campos['ordenservicio'] = $f->text("ordenservicio", @$valores['ordenservicio'], "10", "", false);
+$f->campos['ordencobro'] = $f->text("ordencobro", @$valores['ordencobro'], "10", "", false);
 $f->campos['creador'] = $f->text("creador", $valores['creador'], "10", "", false);
 $f->campos['responsable'] = $f->text("responsable", $valores['responsable'], "10", "", false);
 $f->campos['origen'] = $f->text("origen", $valores['origen'], "128", "", false);
@@ -128,7 +128,7 @@ $f->celdas["sector"] = $f->celda("Sector:", $f->campos['sector']);
 $f->celdas["direccion"] = $f->celda("Direccion:", $f->campos['direccion']);
 $f->celdas["referencia"] = $f->celda("Referencia:", $f->campos['referencia']);
 $f->celdas["expiracion"] = $f->celda("Expiracion:", $f->campos['expiracion']);
-$f->celdas["instalacion"] = $f->celda("Instalacion:", $f->campos['instalacion']);
+$f->celdas["instalacion"] = $f->celda("Dirección Complementaria (Instalaciones Nuevas y/o relacionadas):", $f->campos['instalacion']);
 //$f->celdas["instalacionsector"] = $f->celda("Instalacionsector:", $f->campos['instalacionsector']);
 $f->celdas["estrato"] = $f->celda("Estrato:", $f->campos['estrato']);
 $f->celdas["diametro"] = $f->celda("Diametro:", $f->campos['diametro']);
@@ -147,6 +147,7 @@ $f->fila["solicitud2"] = $f->fila($f->celdas["suscriptor"] . $f->celdas["factura
 $f->fila["solicitud3"] = $f->fila($f->celdas["categoria"] . $f->celdas["causal"]);
 $f->fila["solicitud4"] = $f->fila($f->celdas["asunto"]);
 $f->fila["solicitud5"] = $f->fila($f->celdas["detalle"]);
+$f->fila["solicitud6"] = $f->fila($f->celdas["instalacion"]);
 /** Compilando * */
 $f->filas("<div id=\"solicitud" . $transaccion . "\">");
 $f->filas($f->titulo("Datos de la solicitud."));
@@ -155,12 +156,13 @@ $f->filas($f->fila['solicitud2']);
 $f->filas($f->fila['solicitud3']);
 $f->filas($f->fila['solicitud4']);
 $f->filas($f->fila['solicitud5']);
+$f->filas($f->fila['solicitud6']);
 $f->filas("</div>");
 $f->botones($f->campos['cancelar'], "inferior-derecha");
 $f->botones($f->campos['actualizar'], "inferior-derecha");
 /** JavaScripts * */
 $f->JavaScript("MUI.titleWindow($('" . ($f->ventana) . "'), \"Modificar Solicitud \");");
-$f->JavaScript("MUI.resizeWindow($('" . ($f->ventana) . "'), {width: 680, height: 420});");
+$f->JavaScript("MUI.resizeWindow($('" . ($f->ventana) . "'), {width: 680, height: 450});");
 $f->JavaScript("MUI.centerWindow($('" . $f->ventana . "'));");
 $f->eClick("cancelar" . $f->id, "MUI.closeWindow($('" . $f->ventana . "'));");
 ?>

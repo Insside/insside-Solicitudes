@@ -32,7 +32,7 @@ $sesion = new Sesion();
 $u = new Usuarios();
 $v = new Validaciones();
 $s = new Solicitudes();
-$equipos=new Usuarios_Equiposs();
+$equipos=new Usuarios_Equipos();
 
 $usuario = $v->recibir("usuario");
 $servicio ="02";

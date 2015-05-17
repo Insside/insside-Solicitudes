@@ -35,7 +35,7 @@ $validaciones=new Validaciones();
  * POSSIBILITY OF SUCH DAMAGE.
  */
 /** Variables **/
-$usuario=$sesion->usuario();
+$usuario=Sesion::usuario();
 $inicio=$validaciones->recibir('inicio');
 $final=$validaciones->recibir('final');
 $equipo=$usuario['equipo'];

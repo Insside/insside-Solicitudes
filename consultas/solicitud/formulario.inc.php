@@ -1,7 +1,8 @@
 <?php
-
 $root = (!isset($root)) ? "../../../../" : $root;
 require_once($root . "modulos/solicitudes/librerias/Configuracion.cnf.php");
+Sesion::init();
+
 $cadenas = new Cadenas();
 $fechas = new Fechas();
 $paises = new Paises();
@@ -144,7 +145,7 @@ $f->celdas["categoria"] = $f->celda("Categoría / Tipo de Trámite: [ <a href=\"
 $f->celdas["causal"] = $f->celda("Detalle de la Causal: [ <a href=\"#\" onClick=\"MUI.Solicitudes_Ayuda('causal');\">?</a> ]", $f->campos['causal']);
 $f->celdas["asunto"] = $f->celda("Asunto:", $f->campos['asunto']);
 $f->celdas["detalle"] = $f->celda("Detalle / Contenido Textual de la Solicitud Registrada:", $f->campos['detalle']);
-$f->celdas["suscriptor"] = $f->celda("Número de Cuenta / Suscriptor: [ <a href=\"#\" onClick=\"MUI.Solicitudes_Ayuda('suscriptor');\">?</a> ]", $f->campos['suscriptor'], "", "w200");
+$f->celdas["suscriptor"] = $f->celda("Suscriptor: [ <a href=\"#\" onClick=\"MUI.Solicitudes_Ayuda('suscriptor');\">?</a> ]", $f->campos['suscriptor'], "", "w200");
 $f->celdas["suscriptor_identificacion"] = $f->celda("Identificación:", $f->campos['suscriptor_identificacion']);
 $f->celdas["suscriptor_nombres"] = $f->celda("Nombres:", $f->campos['suscriptor_nombres']);
 $f->celdas["suscriptor_apellidos"] = $f->celda("Apellidos:", $f->campos['suscriptor_apellidos']);

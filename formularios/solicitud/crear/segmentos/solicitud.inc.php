@@ -179,7 +179,7 @@ $f->celdas["sector"] = $f->celda("Sector:", $f->campos['sector']);
 $f->celdas["direccion"] = $f->celda("Direccion:", $f->campos['direccion']);
 $f->celdas["referencia"] = $f->celda("Referencia:", $f->campos['referencia']);
 $f->celdas["expiracion"] = $f->celda("Expiracion:", $f->campos['expiracion']);
-$f->celdas["instalacion"] = $f->celda("Instalacion:", $f->campos['instalacion']);
+$f->celdas["instalacion"] = $f->celda("Dirección Complementaria (Instalaciones Nuevas y/o relacionadas):", $f->campos['instalacion']);
 //$f->celdas["instalacionsector"] = $f->celda("Instalacionsector:", $f->campos['instalacionsector']);
 $f->celdas["estrato"] = $f->celda("Estrato:", $f->campos['estrato']);
 $f->celdas["diametro"] = $f->celda("Diametro:", $f->campos['diametro']);
@@ -198,6 +198,7 @@ $f->fila["solicitud2"] = $f->fila($f->celdas["suscriptor"] . $f->celdas["factura
 $f->fila["solicitud3"] = $f->fila($f->celdas["categoria"] . $f->celdas["causal"]);
 //$f->fila["solicitud4"] = $f->fila($f->celdas["asunto"]);
 $f->fila["solicitud5"] = $f->fila($f->celdas["detalle"]);
+$f->fila["solicitud6"] = $f->fila($f->celdas["instalacion"]);
 /** Compilando * */
 $f->filas("<div id=\"solicitud" . $transaccion . "\">");
 $f->filas($f->titulo("Datos de la solicitud."));
@@ -206,12 +207,13 @@ $f->filas($f->fila['solicitud2']);
 $f->filas($f->fila['solicitud3']);
 //$f->filas($f->fila['solicitud4']);
 $f->filas($f->fila['solicitud5']);
+$f->filas($f->fila['solicitud6']);
 $f->filas("</div>");
 $f->botones($f->campos['anterior'], "inferior-derecha");
 $f->botones($f->campos['continuar'], "inferior-derecha");
 /** JavaScripts * */
 $f->JavaScript("MUI.titleWindow($('" . ($f->ventana) . "'), \"Modificar Solicitud \");");
-$f->JavaScript("MUI.resizeWindow($('" . ($f->ventana) . "'), {width: 680, height: 420});");
+$f->JavaScript("MUI.resizeWindow($('" . ($f->ventana) . "'), {width: 680, height: 450});");
 $f->JavaScript("MUI.centerWindow($('" . $f->ventana . "'));");
 $f->eClick("anterior" . $f->id,"$('avance".$f->id."').value = 'solicitante';");
 ?>

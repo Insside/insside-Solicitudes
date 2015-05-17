@@ -11,6 +11,7 @@ $usuario = Sesion::usuario();
 // Variables recibidas
 $transaccion = $validaciones->recibir("transaccion");
 $solicitud = $validaciones->recibir("solicitud");
+$aforo = $validaciones->recibir("aforo");
 $categoria = $validaciones->recibir("categoria");
 $observacion = $validaciones->recibir("observacion");
 // Elementos declarados
@@ -46,6 +47,7 @@ foreach ($_FILES as $archivo) {
     } else {
       $datos['archivo'] = time();
       $datos['solicitud'] = $solicitud;
+      $datos['aforo'] = $aforo;
       $datos['categoria'] = $categoria;
       $datos['nombre'] = $v['nombre'];
       $datos['observacion'] = $observacion;

@@ -31,7 +31,7 @@
 $sesion=new Sesion();
 $validaciones = new Validaciones();
 $fechas=new Fechas();
-$usuario=$sesion->usuario();
+$usuario=Sesion::usuario();
 /** Valores **/
 $valores['formato']=$validaciones->recibir("_formato");
 $valores['nombre']=$validaciones->recibir("_nombre");

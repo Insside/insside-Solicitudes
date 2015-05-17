@@ -48,6 +48,7 @@ $solicitudes->actualizar($solicitud, "categoria", $categoria);
 $solicitudes->actualizar($solicitud, "causal", $causal);
 $solicitudes->actualizar($solicitud, "asunto", $asunto);
 $solicitudes->actualizar($solicitud, "detalle", $detalle);
+$solicitudes->actualizar($solicitud, "instalacion",$validaciones->recibir("instalacion"));
 //echo("<pre>");
 //print_r($_REQUEST);
 //echo("</pre>");

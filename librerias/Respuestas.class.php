@@ -2,7 +2,6 @@
 
 $root = (!isset($root)) ? "../../" : $root;
 require_once($root . "modulos/solicitudes/librerias/Configuracion.cnf.php");
-require_once($root . "modulos/empleados/librerias/Empleados.class.php");
 
 class Respuestas {
 
@@ -18,7 +17,7 @@ class Respuestas {
   function Respuestas() {
     $this->sesion = new Sesion();
     $this->fechas = new Fechas();
-    $this->permisos = new Permisos();
+    $this->permisos = new Usuarios_Permisos();
     $this->usuarios = new Usuarios();
     $this->empleados = new Empleados();
     $this->formatos = new Formatos();

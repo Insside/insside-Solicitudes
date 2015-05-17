@@ -40,7 +40,7 @@ $valores['fechainicial']=empty($s['fechainicial'])?"2012-01-01":$s['fechainicial
 $valores['fechafinal']=empty($s['fechafinal'])?$fechas->hoy():$s['fechafinal'];
 /** Campos **/
 $f->campos['criterio']=$solicitudes->criterios("criterio", $valores['criterio']);
-$f->campos['valor']=$f->text("valor",$valores['valor'], "8","", false);
+$f->campos['valor']=$f->text("valor",$valores['valor'], "32","", false);
 $f->campos['fechainicial']=$f->calendario("fechainicial",$valores['fechainicial'],"-1","2");
 $f->campos['fechafinal']=$f->calendario("fechafinal",$valores['fechafinal'],"-1");
 $f->campos['buscar'] = $f->button("buscar" . $f->id, "submit","Filtrar");

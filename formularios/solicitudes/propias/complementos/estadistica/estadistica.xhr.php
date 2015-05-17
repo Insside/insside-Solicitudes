@@ -36,7 +36,7 @@ $validaciones=new Validaciones();
  */
 
 /** Variables **/
-$usuario=$sesion->usuario();
+$usuario=Sesion::usuario();
 $inicio=$validaciones->recibir('inicio');
 $final=$validaciones->recibir('final');
 /** 

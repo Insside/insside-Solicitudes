@@ -34,6 +34,6 @@ $forma="RADICACION";
 $radicado="";
 $fecha=$validaciones->recibir("fecha");
 $hora=$fechas->ahora();
-$usuario=$sesion->usuario();
+$usuario=Sesion::usuario();
 $traslados->crear($solicitud, $forma, $radicado, $fecha, $hora, $usuario['usuario']);
 $f->JavaScript("MUI.closeWindow($('" . ($f->ventana) . "'));");

@@ -30,7 +30,7 @@ $cadenas = new Cadenas();
 $categorias = new Categorias();
 $componentes = new Componentes();
 $suscriptores = new Suscriptores();
-$permisos=new Permisos();
+$permisos=new Usuarios_Permisos();
 $usuarios=new Usuarios();
 $paises = new Paises();
 $regiones = new Regiones();
@@ -55,9 +55,10 @@ $valores = $solicitud;
  * puede ser permanente o trasferible.
  */
 
-$usuario=$sesion->usuario();
+$usuario=Sesion::usuario();
 if(($usuario['usuario']==$solicitud['creador'])||($usuario['usuario']==$solicitud['responsable'])){
-  if($usuarios->permiso("SOLICITUDES-RESPONDER")||$usuarios->permiso("SOLICITUDES-RESPONDER-PUBLICAMENTE")){
+ 
+  if($usuarios->permiso("SOLICITUDES-RESPONDER",$usuario['usuario'])||$usuarios->permiso("SOLICITUDES-RESPONDER-PUBLICAMENTE",$usuario['usuario'])){
   $link["responder"]="[ <a href=\"#\" onClick=\"MUI.Solicitudes_Respuesta_Crear('".$s['solicitud']."');\">Responder</a> ]";
   }else{
       $link["responder"]="<a href=\"#\" onClick=\"MUI.Solicitudes_Ayuda('responder-permisos');\"><img src=\"imagenes/16x16/ayuda-16x16.png\"/></a>";
