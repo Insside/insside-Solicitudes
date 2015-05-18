@@ -51,11 +51,10 @@ $tabla->boton('btnTrasferir', 'Trasferir', 'solicitud', "MUI.Solicitudes_Trasfer
 $tabla->boton('btnEliminar', 'Eliminar', 'solicitud', "MUI.Solicitudes_Solicitud_Eliminar", "pEliminar");
 $tabla->boton('btnFiltrar', 'Filtrar', '', "MUI.Solicitudes_Propias_Complemento_Filtrar", "pBuscar");
 $tabla->boton('btnResponsables', 'Información', 'solicitud', "MUI.Solicitudes_Responsables", "pInformacion");
-$tabla->columna('cSolicitud', 'Solicitud', 'solicitud', 'string', '90', 'center', 'true');
+$tabla->columna('cSolicitud', 'Solicitud', 'solicitud', 'string', '90', 'center', 'false');
 $tabla->columna('cCreador', 'Creador', 'creador', 'string', '100', 'left', 'true');
 $tabla->columna('cResponsable', 'Responsable', 'responsable', 'string', '90', 'left', 'true');
 $tabla->columna('cEquipo', 'Equipo', 'equipo', 'string', '90', 'center', 'true');
-$tabla->columna('cCodigo', 'Solicitud', 'codigo', 'string', '90', 'center', 'false');
 $tabla->columna('cDetalles', 'Detalles (Servicio+Categoria+Causal+Suscriptor)', 'detalles', 'string', '570', 'left', 'false');
 $tabla->columna('cRespuesta-Dias', '<a href=\"#\" onClick=\"MUI.Notificacion(\'Dias Habiles Trascurridos\');\">DHT</a>', 'respuesta-dht', 'string', '40', 'center', 'false');
 $tabla->columna('cEstados', 'Estados', 'estados', 'string', '90', 'center', 'false');
