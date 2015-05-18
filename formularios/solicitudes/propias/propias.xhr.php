@@ -31,6 +31,6 @@ $validaciones=new Validaciones();
 if(Sesion::Iniciada()){
   require_once($root."modulos/solicitudes/formularios/solicitudes/propias/tabla.inc.php");
 }else{
-  require_once($root."modulos/aplicacion/formularios/sesion/reconexion/reconexion.xhr.php");
+  require_once($root."modulos/aplicacion/formularios/sesion/reconexion/central.inc.php");
 }
 ?>
