@@ -257,7 +257,6 @@ if(intval(@$fila['s_categoria'])==3){
   $json['creador'] = @$fila['creador'];
   $json['responsable'] = @$fila['responsable'];
   $json['equipo'] = @$fila['equipo'];
-  $json['codigo'] = "<a href=\"#\" onClick=\"MUI.Solicitudes_Solicitud_Consultar('" . @$fila['solicitud'] . "');\">" . @$fila['solicitud'] . "</a>";
   $json['causal'] = @$fila['causal'];
   $json['detalles'] = $detalles;
   $json['radicacion'] = @$fila['s_radicacion'];
