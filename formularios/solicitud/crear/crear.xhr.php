@@ -26,19 +26,23 @@ require_once($root . "modulos/solicitudes/librerias/Configuracion.cnf.php");
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
-
-$validaciones=new Validaciones();
-$transaccion=$validaciones->recibir("transaccion");
+$usuario = Sesion::usuario();
+$validaciones = new Validaciones();
+$transaccion = $validaciones->recibir("transaccion");
 $trasmision = $validaciones->recibir("trasmision");
+$url['reconexion'] = $root . "modulos/aplicacion/formularios/sesion/reconexion/formulario.inc.php";
 $url['formulario']=$root . "modulos/solicitudes/formularios/solicitud/crear/formulario.inc.php";
 $url['procesador']=$root . "modulos/solicitudes/formularios/solicitud/crear/procesador.inc.php";
-
 $f = new Formularios($transaccion);
 echo($f->apertura());
-if (empty($trasmision)) {
-  require_once($url['formulario']);
+if (Sesion::Iniciada()) {
+  if (empty($trasmision)) {
+    require_once($url['formulario']);
+  } else {
+    require_once($url['procesador']);
+  }
 } else {
-  require_once($url['procesador']);
+  require_once($url['reconexion']);
 }
 echo($f->generar());
 echo($f->controles());
